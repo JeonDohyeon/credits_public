@@ -1,0 +1,7 @@
+# WAV file is not provided
+*.wav
+
+# Python Cache file
+__pycache__
+
+# Other files
