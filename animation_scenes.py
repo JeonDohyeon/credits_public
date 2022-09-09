@@ -193,7 +193,7 @@ title = am.Scene(
         # '  -
 
         am.Generator(
-            64, am.Generator.at_beat(64),
+            0, am.Generator.at_beat(0),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 1), "animation | plaaosert", Fore.CYAN + Style.BRIGHT
@@ -202,7 +202,7 @@ title = am.Scene(
         ),
 
         am.Generator(
-            128, am.Generator.at_beat(128),
+            64, am.Generator.at_beat(64),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 2), "bgm       | Frums - Credits", Fore.CYAN + Style.BRIGHT
@@ -211,10 +211,19 @@ title = am.Scene(
         ),
 
         am.Generator(
+            128, am.Generator.at_beat(128),
+            am.Generator.no_create(),
+            lambda g, b: canvas.set_string(
+                0, Vector2(1,3), "edited    | @jdh5968", Fore.CYAN + Style.BRIGHT
+            ),
+            am.Generator.no_request()
+        ),
+
+        am.Generator(
             192, am.Generator.at_beat(192),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 4), "running pure Python 3.6", Fore.CYAN + Style.NORMAL
+                0, Vector2(1, 4), "system    | Python 3.9 x64", Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
@@ -223,7 +232,7 @@ title = am.Scene(
             256, am.Generator.at_beat(256),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 5), "in the command line", Fore.CYAN + Style.NORMAL
+                0, Vector2(1, 5), "font      | D2Coding", Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
