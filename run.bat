@@ -2,7 +2,7 @@
 cls
 title Frums - Credits EX / BGA by plaaosert / EDIT by DoHyeon / Python 3.6+
 
-mode 120,36
+mode 80,29
 
 ver
 python3 --version
