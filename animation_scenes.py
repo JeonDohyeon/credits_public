@@ -226,7 +226,7 @@ title = am.Scene(
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 4), "system    | Python " + 
-                ".".join([sys.version_info.major, sys.version_info.minor]) + 
+                ".".join([str(sys.version_info.major), str(sys.version_info.minor)]) + 
                 " " + platform.architecture()[1], Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
