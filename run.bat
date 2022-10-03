@@ -1,6 +1,6 @@
 @echo off
 cls
-title Frums - Credits EX / BGA by plaaosert / EDIT by DoHyeon / Python 3.9.13
+title Frums - Credits EX / BGA by plaaosert / EDIT by DoHyeon / Python 3.6+
 
 ver
 python3 --version
@@ -14,12 +14,16 @@ echo BGA by plaaosert
 echo Edit by DoHyeon
 echo.
 echo.
+
 timeout 3 > nul
-echo Running on Pure Python 3.9
+
+@REM set this string as the python3 version you're running.
+echo Running on Pure Python 3.6+
 echo.
-echo System: Windows 11 Home x64, 8GB RAM
-echo.
-echo Integrated with Visual Studio 2022 Community
+@REM not showing this anymore :D
+@REM echo System: Windows 11 Home x64, 8GB RAM
+@REM echo.
+@REM echo Integrated with Visual Studio 2022 Community
 echo.
 echo.
 timeout 3 > nul
