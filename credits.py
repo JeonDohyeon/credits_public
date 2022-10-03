@@ -298,6 +298,14 @@ controller = am.SceneManager((*all_scenes, counter), (
 #
 # ffwing = MixerWrapper()
 
+def clearscreen():
+    if os.name == "nt":
+        os.system("cls")
+    elif os.name == "posix":
+        os.system("clear")
+    else:
+        print("\033[2J")
+
 paused_this_frame = False
 ff_this_frame = False
 
@@ -305,6 +313,8 @@ filename = "media/credits.wav"
 
 playback = Playback()
 playback.load_file(filename)
+
+clearscreen()
 
 print("\033[1;1Hskips\n\n1 | start\n2 | title\n3 | funding\n4 | loading\n5 | break\n6 | final")
 
@@ -339,13 +349,7 @@ while time.time() - 2 < time_menu:
 
     time.sleep(0.01)
 
-
-if os.name == "nt":
-    os.system("cls")
-elif os.name == "posix":
-    os.system("clear")
-else:
-    print("\033[2J")
+clearscreen()
 
 # wave_obj = sa.WaveObject.from_wave_file(filename)
 # play_obj = wave_obj.play()
