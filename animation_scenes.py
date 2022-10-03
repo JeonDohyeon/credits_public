@@ -7,6 +7,8 @@ from animation_functions import *
 from animation_classes import known_weathers
 from ocean import begin_ocean, update_ocean_slices
 from CLIRender.classes import Canvas
+import sys
+import platform
 
 canvas = Canvas(Vector2(40, 24), 1, ())
 
@@ -205,7 +207,7 @@ title = am.Scene(
             64, am.Generator.at_beat(64),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 2), "bgm       | Frums - Credits", Fore.CYAN + Style.BRIGHT
+                0, Vector2(1, 2), "bgm       | Frums - Credits EX", Fore.CYAN + Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
@@ -223,7 +225,9 @@ title = am.Scene(
             192, am.Generator.at_beat(192),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 4), "system    | Python 3.9 x64", Fore.CYAN + Style.NORMAL
+                0, Vector2(1, 4), "system    | Python " + 
+                ".".join([sys.version_info.major, sys.version_info.minor]) + 
+                " " + platform.architecture()[1], Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
@@ -242,6 +246,25 @@ title = am.Scene(
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(0, 21), "--" * 40, Fore.WHITE + Style.BRIGHT
+            ),
+            am.Generator.no_request()
+        ),
+
+        am.Generator(
+            320, am.Generator.at_beat(320),
+            am.Generator.no_create(),
+            lambda g, b: set_multiline_string(
+                canvas, 0, 1, 1, (" " * 39 + "\n") * 5, Fore.WHITE + Style.BRIGHT
+            ),
+            am.Generator.no_request()
+        ),
+
+        am.Generator(
+            320, am.Generator.at_beat(320),
+            am.Generator.no_create(),
+            lambda g, b: set_multiline_string(
+                canvas, 0, 1, 1, "Preparing console...\n" +
+                                 "Please wait.", Fore.WHITE, Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
