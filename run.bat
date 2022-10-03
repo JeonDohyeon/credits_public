@@ -3,7 +3,9 @@ cls
 title Frums - Credits EX / BGA by plaaosert / EDIT by DoHyeon / Python 3.9.13
 
 ver
-python --version
+python3 --version
+echo.
+echo.
 timeout 5 > nul
 
 echo Frums - Credits EX
@@ -26,7 +28,7 @@ echo.
 timeout 3 > nul
 
 cls
-python .\credits.py
+python3 .\credits.py
 
  
 cls
