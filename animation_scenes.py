@@ -227,7 +227,7 @@ title = am.Scene(
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 4), "system    | Python " + 
                 ".".join([str(sys.version_info.major), str(sys.version_info.minor)]) + 
-                " " + platform.architecture()[1], Fore.CYAN + Style.NORMAL
+                " " + platform.architecture()[0], Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
@@ -254,7 +254,7 @@ title = am.Scene(
             320, am.Generator.at_beat(320),
             am.Generator.no_create(),
             lambda g, b: set_multiline_string(
-                canvas, 0, 1, 1, (" " * 39 + "\n") * 5, Fore.WHITE + Style.BRIGHT
+                canvas, 0, 1, 1, (" " * 30 + "\n") * 5, Fore.WHITE + Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
@@ -264,7 +264,7 @@ title = am.Scene(
             am.Generator.no_create(),
             lambda g, b: set_multiline_string(
                 canvas, 0, 1, 1, "Preparing console...\n" +
-                                 "Please wait.", Fore.WHITE, Style.BRIGHT
+                                 "Please wait.", Fore.WHITE + Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
