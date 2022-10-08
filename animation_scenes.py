@@ -9,6 +9,7 @@ from ocean import begin_ocean, update_ocean_slices
 from CLIRender.classes import Canvas
 import sys
 import platform
+from datetime import datetime, timedelta
 
 canvas = Canvas(Vector2(40, 24), 1, ())
 
@@ -181,8 +182,8 @@ title = am.Scene(
         # We have 12 beat-ends to map to:
         # '  - plaaosert
         # '  - frums
-        # '  - python 3.6
-        # '  - command line
+        # '  - [edition]
+        # '  - [your python3 version]
         # drums
         # '  -
         # '  -
@@ -195,7 +196,7 @@ title = am.Scene(
         # '  -
 
         am.Generator(
-            0, am.Generator.at_beat(0),
+            64, am.Generator.at_beat(64),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 1), "animation | plaaosert", Fore.CYAN + Style.BRIGHT
@@ -204,7 +205,7 @@ title = am.Scene(
         ),
 
         am.Generator(
-            64, am.Generator.at_beat(64),
+            128, am.Generator.at_beat(128),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
                 0, Vector2(1, 2), "bgm       | Frums - Credits EX", Fore.CYAN + Style.BRIGHT
@@ -213,30 +214,22 @@ title = am.Scene(
         ),
 
         am.Generator(
-            128, am.Generator.at_beat(128),
-            am.Generator.no_create(),
-            lambda g, b: canvas.set_string(
-                0, Vector2(1,3), "edited    | @jdh5968", Fore.CYAN + Style.BRIGHT
-            ),
-            am.Generator.no_request()
-        ),
-
-        am.Generator(
             192, am.Generator.at_beat(192),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 4), "system    | Python " + 
-                ".".join([str(sys.version_info.major), str(sys.version_info.minor)]) + 
-                " " + platform.architecture()[0], Fore.CYAN + Style.NORMAL
+                0, Vector2(1,4), "edited    | @JeonDohyeon", Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
 
+        # Automated python3 version displays
         am.Generator(
             256, am.Generator.at_beat(256),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 5), "font      | D2Coding", Fore.CYAN + Style.NORMAL
+                0, Vector2(1, 5), "system    | Python " + 
+                ".".join([str(sys.version_info.major), str(sys.version_info.minor)]) + 
+                " " + platform.architecture()[0], Fore.CYAN + Style.NORMAL
             ),
             am.Generator.no_request()
         ),
@@ -260,20 +253,28 @@ title = am.Scene(
         ),
 
         am.Generator(
-            320, am.Generator.at_beat(320),
+            384, am.Generator.at_beat(384),
             am.Generator.no_create(),
-            lambda g, b: set_multiline_string(
-                canvas, 0, 1, 1, "Preparing console...\n" +
-                                 "Please wait.", Fore.WHITE + Style.BRIGHT
+            lambda g, b: canvas.set_string(
+                0, Vector2(1, 22), "> _ ", Fore.WHITE + Style.BRIGHT
+            ),
+            am.Generator.no_request()
+        ),
+        
+        am.Generator(
+            384, am.Generator.at_beat(384),
+            am.Generator.no_create(),
+            lambda g, b: canvas.set_string(
+                0, Vector2(1, 1), "Preparing Debug Console...", Fore.WHITE + Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
 
         am.Generator(
-            384, am.Generator.at_beat(384),
+            386, am.Generator.at_beat(386),
             am.Generator.no_create(),
             lambda g, b: canvas.set_string(
-                0, Vector2(1, 22), "> _ ", Fore.WHITE + Style.BRIGHT
+                0, Vector2(1, 3), "Please wait a bit.", Fore.YELLOW + Style.BRIGHT
             ),
             am.Generator.no_request()
         ),
@@ -798,13 +799,14 @@ access_points = am.Scene(
             am.Generator.no_request()
         ),
 
+        # Automated time calculations. No more fixed date as "532".
         am.Generator(
             0, am.Generator.at_beat(0),
             am.Generator.no_create(),
             lambda g, b: set_multiline_string(canvas, 0, 1, 17,
                                               "No access points are broadcasting.\n"
                                               "Manual search in progress.\n"
-                                              "Last search 27.02.2019 (532 days ago)",
+                                              "Last search 27.02.2019 (" + str((datetime.now() - datetime(2019,2,27)).days) + " days ago)",
                                               Fore.BLACK + Style.BRIGHT),
             am.Generator.no_request()
         ),

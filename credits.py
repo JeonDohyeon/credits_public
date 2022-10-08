@@ -316,7 +316,7 @@ playback.load_file(filename)
 
 clearscreen()
 
-print("\033[1;1Hskips\n\n1 | start\n2 | title\n3 | funding\n4 | loading\n5 | break\n6 | final")
+print("\033[1;1Hskips\n\n1 | start\n2 | title\n3 | funding\n4 | loading\n5 | this is pbs\n6 | final")
 
 # Skips forward to the title scene
 time_menu = time.time()
